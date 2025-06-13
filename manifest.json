@@ -1,7 +1,8 @@
+
 {
-  "name": "Encuesta Energética",
-  "short_name": "Encuesta",
-  "start_url": "index.html",
+  "name": "Encuesta Energética SENA",
+  "short_name": "Encuesta SENA",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0b6121",

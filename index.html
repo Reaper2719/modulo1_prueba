@@ -3,19 +3,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Módulo 1: Encuesta Energética</title>
-  <link rel="stylesheet" href="styles.css" />
-
-  <link rel="manifest" href="manifest.json" />
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js');
-    });
-  }
-</script>
-
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registrado:', reg))
+          .catch(err => console.error('❌ Falló el registro del Service Worker:', err));
+      });
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Módulo 1: Encuesta Energética</h1>
@@ -30,10 +30,10 @@
     </select>
 
     <label>¿Cómo obtiene actualmente energía eléctrica?</label>
-    <input type="text" name="fuente_energia" placeholder="Planta, paneles, baterías, etc." required />
+    <input type="text" name="fuente_energia" required />
 
     <label>¿Qué tipo de combustible utiliza?</label>
-    <input type="text" name="tipo_combustible" placeholder="Gasolina, diésel, gas GLP, etc." />
+    <input type="text" name="tipo_combustible" />
 
     <label>¿Qué tipo de energía usa para cocinar?</label>
     <input type="text" name="energia_cocina" />
