@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 1: Encuesta Energética</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="manifest" href="manifest.json" />
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js');
+    });
+  }
+</script>
+
+</head>
+<body>
+  <h1>Módulo 1: Encuesta Energética</h1>
+  <form id="encuestaForm">
+    <label>¿Está la vivienda conectada a la red eléctrica nacional?</label>
+    <select name="conexion_red" required>
+      <option>Seleccionar...</option>
+      <option>Sí, conexión estable</option>
+      <option>Sí, pero con cortes frecuentes</option>
+      <option>No, fue desconectada</option>
+      <option>No, nunca ha estado conectada</option>
+    </select>
+
+    <label>¿Cómo obtiene actualmente energía eléctrica?</label>
+    <input type="text" name="fuente_energia" placeholder="Planta, paneles, baterías, etc." required />
+
+    <label>¿Qué tipo de combustible utiliza?</label>
+    <input type="text" name="tipo_combustible" placeholder="Gasolina, diésel, gas GLP, etc." />
+
+    <label>¿Qué tipo de energía usa para cocinar?</label>
+    <input type="text" name="energia_cocina" />
+
+    <label>¿Cuánto consume al mes de GLP?</label>
+    <input type="text" name="consumo_glp" />
+
+    <label>¿Cuánto le cuesta al mes este gas?</label>
+    <input type="text" name="costo_gas" />
+
+    <label>¿Quién administra el sistema de energía en la comunidad?</label>
+    <input type="text" name="admin_energia" />
+
+    <label>¿Presenta problemas frecuentes con la energía?</label>
+    <input type="text" name="problemas_energia" />
+
+    <label>¿Cuánto le cuesta mensualmente la energía eléctrica?</label>
+    <input type="text" name="costo_energia" />
+
+    <label>¿Cuánto le cuesta el combustible usado al mes?</label>
+    <input type="text" name="costo_combustible" />
+
+    <label>¿Cuál es su disposición frente a un sistema comunitario renovable?</label>
+    <input type="text" name="disposicion_sistema" />
+
+    <label>¿Qué residuos orgánicos se generan?</label>
+    <input type="text" name="residuos" />
+
+    <label>¿Qué uso les da?</label>
+    <input type="text" name="uso_residuos" />
+
+    <label>¿Usos prioritarios de la energía eléctrica?</label>
+    <input type="text" name="usos_energia" />
+
+    <label>Importancia de la energía eléctrica para la comunidad</label>
+    <input type="text" name="importancia_energia" />
+
+    <label>¿Estaría dispuesto a participar en un sistema comunitario?</label>
+    <input type="text" name="participacion_comunidad" />
+
+    <label>Condiciones importantes para aceptar una solución</label>
+    <textarea name="condiciones_solucion"></textarea>
+
+    <label>Recursos naturales disponibles en la comunidad</label>
+    <textarea name="recursos_naturales"></textarea>
+
+    <label>¿Qué soluciones ha implementado su comunidad?</label>
+    <textarea name="soluciones_emergencia"></textarea>
+
+    <label>¿Qué cambios le gustaría ver?</label>
+    <textarea name="cambios_deseados"></textarea>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+  <button id="exportarJSON">📦 Exportar Registros (.json)</button>
+  <script src="script.js"></script>
+</body>
+</html>
