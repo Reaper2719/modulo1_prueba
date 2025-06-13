@@ -3,106 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Módulo 1: Encuesta Energética</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('✅ SW registrado:', reg))
-          .catch(err => console.error('❌ Error SW:', err));
-      });
-    }
-  </script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Módulo 1 - Encuesta Energética</title>
 </head>
 <body>
-  <h1>Módulo 1: Encuesta Energética</h1>
-  <form id="formulario">
-
-    <fieldset>
-      <legend>1. ¿Está la vivienda conectada a la red eléctrica nacional?</legend>
-      <label><input type="radio" name="conexion" value="Estable"> Sí, conexión estable</label>
-      <label><input type="radio" name="conexion" value="Cortes"> Sí, pero con cortes frecuentes</label>
-      <label><input type="radio" name="conexion" value="Desconectada"> No, fue desconectada</label>
-      <label><input type="radio" name="conexion" value="Nunca"> No, nunca ha estado conectada</label>
-    </fieldset>
-
-    <fieldset>
-      <legend>2. ¿Cómo obtiene actualmente energía eléctrica?</legend>
-      <label><input type="checkbox" name="fuente[]" value="Planta"> Planta o generador</label>
-      <label><input type="checkbox" name="fuente[]" value="Paneles"> Paneles solares autónomos</label>
-      <label><input type="checkbox" name="fuente[]" value="Comunitario"> Sistema fotovoltaico comunitario</label>
-      <label><input type="checkbox" name="fuente[]" value="Baterías"> Baterías recargables</label>
-      <label><input type="checkbox" name="fuente[]" value="Ninguna"> No cuenta con ninguna fuente</label>
-      <label><input type="checkbox" name="fuente[]" value="Otro"> Otro</label>
-    </fieldset>
-
-    <fieldset>
-      <legend>3. ¿Qué tipo de combustible utiliza?</legend>
-      <label><input type="checkbox" name="combustible[]" value="Gasolina"> Gasolina</label>
-      <label><input type="checkbox" name="combustible[]" value="Diésel"> Diésel</label>
-      <label><input type="checkbox" name="combustible[]" value="GLP"> Gas GLP</label>
-      <label><input type="checkbox" name="combustible[]" value="Ninguna"> Ninguna</label>
-      <label><input type="checkbox" name="combustible[]" value="Otro"> Otro</label>
-    </fieldset>
-
-    <label>4. ¿Qué tipo de energía usa para cocinar?</label>
-    <input type="text" name="energia_cocina" />
-
-    <label>5. ¿Cuánto consume al mes de GLP?</label>
-    <input type="text" name="consumo_glp" />
-
-    <label>6. ¿Cuánto le cuesta al mes este gas?</label>
-    <input type="text" name="costo_gas" />
-
-    <label>7. ¿Quién administra el sistema de energía en la comunidad?</label>
-    <input type="text" name="admin_energia" />
-
-    <label>8. ¿Problemas frecuentes con la energía?</label>
-    <input type="text" name="problemas_energia" />
-
-    <label>9. ¿Cuánto le cuesta mensualmente la energía eléctrica?</label>
-    <input type="text" name="costo_energia" />
-
-    <label>10. ¿Cuánto le cuesta el combustible usado al mes?</label>
-    <input type="text" name="costo_combustible" />
-
-    <label>11. Disposición frente a sistema comunitario renovable</label>
-    <input type="text" name="disposicion_sistema" />
-
-    <label>12. ¿Qué residuos orgánicos se generan?</label>
-    <input type="text" name="residuos" />
-
-    <label>13. ¿Qué uso les da?</label>
-    <input type="text" name="uso_residuos" />
-
-    <label>14. Usos prioritarios de la energía eléctrica</label>
-    <input type="text" name="usos_energia" />
-
-    <label>15. Importancia de la energía eléctrica para la comunidad</label>
-    <input type="text" name="importancia_energia" />
-
-    <label>16. ¿Participaría en un sistema comunitario?</label>
-    <input type="text" name="participacion_comunidad" />
-
-    <label>17. Condiciones importantes para aceptar una solución</label>
-    <textarea name="condiciones_solucion"></textarea>
-
-    <label>18. Recursos naturales disponibles en la comunidad</label>
-    <textarea name="recursos_naturales"></textarea>
-
-    <label>19. ¿Qué soluciones ha implementado su comunidad?</label>
-    <textarea name="soluciones_emergencia"></textarea>
-
-    <label>20. ¿Qué cambios le gustaría ver?</label>
-    <textarea name="cambios_deseados"></textarea>
-
-    <button type="submit">Guardar</button>
-  </form>
-
-  <button id="exportarJSON">📦 Exportar todos los datos</button>
-
-  <script src="script.js"></script>
+  <div id="app">
+    <h1>Módulo 1: Encuesta Energética</h1>
+    <form id="formulario"></form>
+    <div class="acciones">
+      <button type="button" onclick="guardarRespuestas()">Guardar</button>
+      <button type="button" onclick="exportarDatos()">Exportar JSON</button>
+    </div>
+  </div>
+  <script src="indexedDB.js"></script>
+  <script src="main.js"></script>
+  <script src="export.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
 </body>
 </html>
