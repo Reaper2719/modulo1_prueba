@@ -1,4 +1,3 @@
-
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('encuesta-cache-v1').then(cache => {
