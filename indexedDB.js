@@ -7,11 +7,20 @@ function guardarRespuestas() {
     } else if (input.type === "checkbox") {
       if (!respuestas[input.name]) respuestas[input.name] = [];
       if (input.checked) respuestas[input.name].push(input.value);
-    } else if (input.type === "text" || input.tagName === "TEXTAREA") {
-      respuestas[input.name] = input.value;
+    } else if (input.tagName === "TEXTAREA" || input.type === "text") {
+      if (input.value.trim() !== "") {
+        if (respuestas[input.name]) {
+          if (Array.isArray(respuestas[input.name])) {
+            respuestas[input.name].push(input.value);
+          } else {
+            respuestas[input.name] = [respuestas[input.name], input.value];
+          }
+        } else {
+          respuestas[input.name] = input.value;
+        }
+      }
     }
   });
-
   localStorage.setItem("respuestas_modulo1", JSON.stringify(respuestas));
   alert("Respuestas guardadas localmente.");
 }
